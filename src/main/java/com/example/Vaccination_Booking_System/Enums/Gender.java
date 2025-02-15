@@ -1,4 +1,6 @@
 package com.example.Vaccination_Booking_System.Enums;
 
-public class Gender {
+public enum Gender {
+    MALE,
+    FEMALE
 }

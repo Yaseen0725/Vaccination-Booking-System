@@ -4,7 +4,6 @@ package com.example.Vaccination_Booking_System.Models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
-
 import java.util.Date;
 
 @Entity
