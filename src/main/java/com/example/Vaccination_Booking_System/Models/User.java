@@ -2,23 +2,34 @@ package com.example.Vaccination_Booking_System.Models;
 
 import com.example.Vaccination_Booking_System.Enums.Gender;
 import jakarta.persistence.*;
+import lombok.Data;
+
 
 @Entity
 @Table(name = "users")
+@Data
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer userId;
+    private int userId;
 
-    @Column(name = "userName")
+    @Column(name = "user_name")
     private String name;
 
     private int age;
+
     @Column(unique = true)
     private String emailId;
 
+    @Enumerated(EnumType.STRING)
     private Gender gender;
-    private String mobNo;
+
+    private String mobileNo;
+
+//    @JsonIgnore
+    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
+    private Dose dose;
 
     public int getUserId() {
         return userId;
@@ -60,11 +71,19 @@ public class User {
         this.gender = gender;
     }
 
-    public String getMobNo() {
-        return mobNo;
+    public String getMobileNo() {
+        return mobileNo;
     }
 
-    public void setMobNo(String mobNo) {
-        this.mobNo = mobNo;
+    public void setMobileNo(String mobileNo) {
+        this.mobileNo = mobileNo;
+    }
+
+    public Dose getDose() {
+        return dose;
+    }
+
+    public void setDose(Dose dose) {
+        this.dose = dose;
     }
 }

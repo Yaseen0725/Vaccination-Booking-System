@@ -29,7 +29,7 @@ public class Dose {
 
     @OneToOne
     @JoinColumn
-    @JsonIgnore
+//    @JsonIgnore
     private User user;
 
     public User getUser() {
