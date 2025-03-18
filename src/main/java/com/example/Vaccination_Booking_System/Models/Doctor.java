@@ -2,10 +2,10 @@ package com.example.Vaccination_Booking_System.Models;
 
 import com.example.Vaccination_Booking_System.Enums.Gender;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "doctors")
@@ -13,6 +13,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class Doctor {
 
     @Id
@@ -33,51 +34,7 @@ public class Doctor {
     @JoinColumn
     private VaccinationCenter vaccinationCenter;
 
-    public VaccinationCenter getVaccinationCenter() {
-        return vaccinationCenter;
-    }
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
+    private List<Appointment> appointmentList = new ArrayList<>();
 
-    public void setVaccinationCenter(VaccinationCenter vaccinationCenter) {
-        this.vaccinationCenter = vaccinationCenter;
-    }
-
-    public int getDocId() {
-        return docId;
-    }
-
-    public void setDocId(int docId) {
-        this.docId = docId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public Gender getGender() {
-        return gender;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
-
-    public String getEmailId() {
-        return emailId;
-    }
-
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
-    }
 }

@@ -1,6 +1,5 @@
 package com.example.Vaccination_Booking_System.Models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,12 +8,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
 
 @Entity
 @Table(name = "dose")
+@Data
 public class Dose {
 
     @Id
@@ -32,35 +33,4 @@ public class Dose {
 //    @JsonIgnore
     private User user;
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getDoseId() {
-        return doseId;
-    }
-
-    public void setDoseId(String doseId) {
-        this.doseId = doseId;
-    }
-
-    public Date getVaccinationDate() {
-        return vaccinationDate;
-    }
-
-    public void setVaccinationDate(Date creationDate) {
-        this.vaccinationDate = creationDate;
-    }
 }
