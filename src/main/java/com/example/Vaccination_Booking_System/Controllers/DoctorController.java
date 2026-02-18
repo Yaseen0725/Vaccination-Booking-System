@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class DoctorController {
     @Autowired
     private DoctorService doctorService;
+
     @PostMapping("/add")
     public String addDoctor(@RequestBody Doctor doctor){
         try {
